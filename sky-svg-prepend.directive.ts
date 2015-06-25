@@ -1,12 +1,11 @@
-
 (function() {
 	"use strict";
 
 	angular.module('skySvg').directive('skySvgPrepend', skySvgPrependDirective);
 
-	skySvgPrependDirective.$inject = ['$templateCache'];
+	skySvgPrependDirective.$inject = ['skySvg'];
 
-	function skySvgPrependDirective($templateCache) {
+	function skySvgPrependDirective(skySvg) {
 		var directive = {
 			restrict:'A',
 			priority:100,
@@ -14,16 +13,13 @@
 		};
 
 		function link(scope, element, attrs, ctr, transclude) {
-			var id;
-
-			// The svg name
-			id = attrs.skySvgPrepend;
-
-			element.prepend(getSvg(id));
-
-			function getSvg(id) {
-				return $templateCache.get('/' + id + '.svg') || '';
-			}
+			var unwatch = scope.$watch(attrs.skySvg, function(name) {
+				if(name) {
+					element.prepend(skySvg.getSvg(name));
+					element.addClass('sky-svg-loaded');
+					unwatch();
+				}
+			});
 		}
 
 		return directive;
