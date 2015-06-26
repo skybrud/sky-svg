@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target":"es5",
+    "declaration":true,
+    "out":"dist/sky-svg.js",
+    "sourceMap": false
+  },
+  "files": [
+    "definitions/angularjs/angular.d.ts",
+    "definitions/jquery/jquery.d.ts",
+    "sky-svg.module.ts",
+    "sky-svg.provider.ts",
+    "sky-svg.e.directive.ts",
+    "sky-svg.a.directive.ts",
+    "sky-svg-prepend.directive.ts"
+  ]
+}

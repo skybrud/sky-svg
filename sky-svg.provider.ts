@@ -1,11 +1,12 @@
-interface skySvgProvider {
-	setPath(value:string):string;
-	$get():skySvg;
-}
-
-interface skySvg {
-	getPath():string;
-	getSvg(name:string):string;
+declare module sky {
+	interface skySvgProvider {
+		setPath(value:string):string;
+		$get():skySvg;
+	}
+	interface skySvg {
+		getPath():string;
+		getSvg(name:string):string;
+	}
 }
 
 (function() {
@@ -15,7 +16,7 @@ interface skySvg {
 
 	skySvgProvider.$inject = [];
 
-	function skySvgProvider():skySvgProvider {
+	function skySvgProvider():sky.skySvgProvider {
 		var path = '/';
 
 		/**
@@ -29,10 +30,10 @@ interface skySvg {
 			return path;
 		};
 
-		this.$get = skySvg;
+		this.$get = skySvgFactory;
 
-		skySvg.$inject = ['$templateCache'];
-		function skySvg($templateCache):skySvg {
+		skySvgFactory.$inject = ['$templateCache'];
+		function skySvgFactory($templateCache):sky.skySvg {
 
 			/**
 			 * Get the svg path
@@ -44,7 +45,7 @@ interface skySvg {
 			}
 
 			/**
-			 * Return the svg html
+			 * Return the svg
 			 *
 			 * @see getPath
 			 * @param {string} name
@@ -63,5 +64,3 @@ interface skySvg {
 		return this;
 	}
 })();
-
-
