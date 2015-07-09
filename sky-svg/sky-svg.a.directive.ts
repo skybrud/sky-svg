@@ -13,7 +13,7 @@
 		};
 
 		function link(scope, element, attrs) {
-			var unwatch = scope.$watch(attrs.skySvg, function(name) {
+			var unwatch = attrs.$observe('skySvg', function(name) {
 				if(name) {
 					element.append(skySvg.getSvg(name));
 					element.addClass('sky-svg-loaded');

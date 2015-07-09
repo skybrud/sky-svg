@@ -8,10 +8,10 @@
   "files": [
     "definitions/angularjs/angular.d.ts",
     "definitions/jquery/jquery.d.ts",
-    "sky-svg.module.ts",
-    "sky-svg.provider.ts",
-    "sky-svg.e.directive.ts",
-    "sky-svg.a.directive.ts",
-    "sky-svg-prepend.directive.ts"
+    "sky-svg/sky-svg.module.ts",
+    "sky-svg/sky-svg.provider.ts",
+    "sky-svg/sky-svg.e.directive.ts",
+    "sky-svg/sky-svg.a.directive.ts",
+    "sky-svg/sky-svg-prepend.directive.ts"
   ]
 }
