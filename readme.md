@@ -14,5 +14,5 @@ etc.
 ```
 
 ### Dependencies
-- vue-svg-loader (temporarily using forked version by @matpeder allowing for svgo options until submitted pull request is merged)
-- vue-template-compiler
+- [vue-svg-loader](https://github.com/matpeder/vue-svg-loader) (temporarily using fork by @matpeder allowing for svgo options until submitted pull request is merged)
+- [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler) (peer dependency of vue-svg-loader)
