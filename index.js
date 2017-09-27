@@ -18,7 +18,8 @@ export default allSvgs
 			.replace('./', 'svg-')
 			.split('.svg')
 			.join('')
-			.replace(/[^a-z]+?/g, '-');
+			.replace(/\W+?/g, '-')
+			.toLowerCase();
 		// Create component with name
 		const component = Vue.component(componentName, {
 			extends: allSvgs(key),
