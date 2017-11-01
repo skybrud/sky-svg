@@ -3,7 +3,7 @@ import Vue from 'vue';
 // Require all svgs in folder with vue-svg-loader which gives us
 // pre-compiled render functions
 const allSvgs = require.context(
-	'!!vue-svg-loader?{"svgo":{"plugins":[{"cleanupIDs":false},{"mergePaths":false}]}}!svgs/',
+	'!!vue-svg-loader?{"svgo":{"plugins":[{"cleanupIDs":true},{"mergePaths":false},{"removeStyleElement": true}]}}!svgs/',
 	true,
 	/\.svg$/,
 );
@@ -19,7 +19,9 @@ export default allSvgs
 			.split('.svg')
 			.join('')
 			.replace(/\W+?/g, '-')
-			.toLowerCase();
+			.toLowerCase()
+			.replace(/-([a-z])/g, (m, w) => w.toUpperCase())
+			.replace(/^(.)/, (m, w) => w.toUpperCase());
 		// Create component with name
 		const component = Vue.component(componentName, {
 			extends: allSvgs(key),
